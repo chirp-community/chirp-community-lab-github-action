@@ -35,9 +35,9 @@ jobs:
           cd ../
 
       - name: Build Spring Project
-        run: | 
-          chmod +x ./back_end/gradlew
-          ./back_end/gradlew wrapper clean bootjar 
+        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+        with:
+          arguments: build
 
       # Build & Push Docker Image
       - name: Login to DockerHub
